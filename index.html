@@ -64,29 +64,31 @@
 
   <div class="output" id="output"></div>
 
-  <script>
-    document.getElementById('config-form').addEventListener('submit', function(event) {
-      event.preventDefault();
+<script>
+  document.getElementById('config-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
 
-      const title = document.getElementById('title').value;
-      const body = document.getElementById('body').value;
-      const icon = document.getElementById('icon').value;
-      const interval = document.getElementById('interval').value;
-      const displayDuration = document.getElementById('display-duration').value;
-      const timeAgo = document.getElementById('time-ago').value;
+    const title = document.getElementById('title').value;
+    const body = document.getElementById('body').value;
+    const icon = document.getElementById('icon').value;
+    const interval = document.getElementById('interval').value;
+    const displayDuration = document.getElementById('display-duration').value;
+    const timeAgo = document.getElementById('time-ago').value;
 
-      const scriptTag = `<script defer data-domain="zenvoice"
-  src="https://github.com/mrftech/popup-builder/blob/main/poopup.js"
-  data-title="${title}"
-  data-body="${body}"
-  data-icon="${icon}"
-  data-interval="${interval}"
-  data-display-duration="${displayDuration}"
-  data-time-ago="${timeAgo}"></script>`;
+    const scriptTag = `<script defer data-domain="zenvoice"
+      src="https://raw.githubusercontent.com/mrftech/popup-builder/main/poopup.js"
+      data-title="${title}"
+      data-body="${body}"
+      data-icon="${icon}"
+      data-interval="${interval}"
+      data-display-duration="${displayDuration}"
+      data-time-ago="${timeAgo}"></script>`;
 
-      document.getElementById('output').textContent = scriptTag;
-    });
-  </script>
+    // Display the generated script content in the output section
+    document.getElementById('output').textContent = scriptTag;
+  });
+</script>
+
 
 </body>
 </html>
