@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Popup Notification Configuration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+    .output {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Popup Notification Configuration</h1>
+  
+  <form id="config-form">
+    <div class="form-group">
+      <label for="title">Popup Title</label>
+      <input type="text" id="title" name="title" placeholder="Enter popup title" required>
+    </div>
+    <div class="form-group">
+      <label for="body">Popup Body</label>
+      <input type="text" id="body" name="body" placeholder="Enter popup body" required>
+    </div>
+    <div class="form-group">
+      <label for="icon">Popup Icon URL</label>
+      <input type="url" id="icon" name="icon" placeholder="Enter icon URL" required>
+    </div>
+    <div class="form-group">
+      <label for="interval">Interval Between Popups (ms)</label>
+      <input type="number" id="interval" name="interval" placeholder="Enter interval in milliseconds" required>
+    </div>
+    <div class="form-group">
+      <label for="display-duration">Display Duration (ms)</label>
+      <input type="number" id="display-duration" name="display-duration" placeholder="Enter display duration in milliseconds" required>
+    </div>
+    <div class="form-group">
+      <label for="time-ago">Time Ago Text</label>
+      <input type="text" id="time-ago" name="time-ago" placeholder="Enter time ago text" required>
+    </div>
+    <button type="submit">Generate Script</button>
+  </form>
+
+  <div class="output" id="output"></div>
+
+  <script>
+    document.getElementById('config-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const title = document.getElementById('title').value;
+      const body = document.getElementById('body').value;
+      const icon = document.getElementById('icon').value;
+      const interval = document.getElementById('interval').value;
+      const displayDuration = document.getElementById('display-duration').value;
+      const timeAgo = document.getElementById('time-ago').value;
+
+      const scriptTag = `<script defer data-domain="zenvoice"
+  src="https://username.github.io/popup-notifications/poopup.js"
+  data-title="${title}"
+  data-body="${body}"
+  data-icon="${icon}"
+  data-interval="${interval}"
+  data-display-duration="${displayDuration}"
+  data-time-ago="${timeAgo}"></script>`;
+
+      document.getElementById('output').innerText = scriptTag;
+    });
+  </script>
+
+</body>
+</html>
