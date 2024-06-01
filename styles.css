@@ -1,0 +1,50 @@
+/* styles.css */
+#notification-container {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.notification img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.notification .content {
+  flex-grow: 1;
+}
+
+.notification .content .title {
+  font-weight: bold;
+}
+
+.notification .content .description {
+  font-size: 0.9em;
+}
+
+.notification .time {
+  font-size: 0.8em;
+  color: #777;
+}
+
+/* Media query to show only one notification at a time on small screens */
+@media (max-width: 600px) {
+  .notification + .notification {
+    display: none;
+  }
+}
