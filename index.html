@@ -26,6 +26,7 @@
       padding: 10px;
       border: 1px solid #ccc;
       background-color: #f9f9f9;
+      word-break: break-word;
     }
   </style>
 </head>
@@ -75,7 +76,7 @@
       const timeAgo = document.getElementById('time-ago').value;
 
       const scriptTag = `<script defer data-domain="zenvoice"
-  src="https://mrftech.github.io/popup-builder"
+  src="https://github.com/mrftech/popup-builder/blob/main/poopup.js"
   data-title="${title}"
   data-body="${body}"
   data-icon="${icon}"
@@ -83,7 +84,7 @@
   data-display-duration="${displayDuration}"
   data-time-ago="${timeAgo}"></script>`;
 
-      document.getElementById('output').innerText = scriptTag;
+      document.getElementById('output').textContent = scriptTag;
     });
   </script>
 
